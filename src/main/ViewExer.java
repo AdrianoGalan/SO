@@ -1,39 +1,58 @@
 package main;
 
 import javax.swing.JOptionPane;
-import controller.ExerPalindromo;
+import controller.ExerJava;
 
 public class ViewExer {
 
 	public static void main(String[] args) {
 
-		ExerPalindromo exer = new ExerPalindromo();
-		int menu = -1;
+		ExerJava exer = new ExerJava();
+		int menu;
 
-		while (menu != 2) {
-			if (exer.verificaPalindromo(JOptionPane.showInputDialog("Digite um Palindromo"))) {
+		do {
 
-				JOptionPane.showMessageDialog(null, "é um Palindromo");
-			} else {
-				JOptionPane.showMessageDialog(null, "Não é um Palindromo");
+			try {
+
+				menu = Integer.parseInt(
+						JOptionPane.showInputDialog("Digite \n 1 - Exer Palindromo \n 2 - Exer Nome" + "\n 9 - Sair"));
+
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Valor não é valido");
+				menu = -1;
 			}
 
-			do {
-				try {
+			switch (menu) {
+			case 1:
+				if (exer.verificaPalindromo(JOptionPane.showInputDialog("Digite um Palindromo"))) {
 
-					menu = Integer.parseInt(JOptionPane.showInputDialog("Digite \n 1 - novo palindromo \n 2 - sair"));
-
-					if (menu <1 || menu > 2) {
-						JOptionPane.showMessageDialog(null, "Valor não é valido");
-					}
-				} catch (Exception e) {
-					JOptionPane.showMessageDialog(null, "Valor não é valido");
-					menu = -1;
+					JOptionPane.showMessageDialog(null, "é um Palindromo");
+				} else {
+					JOptionPane.showMessageDialog(null, "Não é um Palindromo");
 				}
 
-			} while (menu != 1 && menu != 2);
+				break;
+			case 2:
+				JOptionPane.showMessageDialog(null,
+						exer.separaNome(JOptionPane.showInputDialog("Digite o seu nome completo")));
+				break;
 
-		}
+			case 9:
+				JOptionPane.showMessageDialog(null, "Finalizando Aplicação");
+				break;
+
+			case -1:
+
+				break;
+
+			default:
+
+				JOptionPane.showMessageDialog(null, "Opção invalida");
+
+				break;
+			}
+
+		} while (menu != 9);
+
 	}
-
 }
