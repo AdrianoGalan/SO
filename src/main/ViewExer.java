@@ -15,7 +15,10 @@ public class ViewExer {
 			try {
 
 				menu = Integer.parseInt(
-						JOptionPane.showInputDialog("Digite \n 1 - Exer Palindromo \n 2 - Exer Nome" + "\n 9 - Sair"));
+						JOptionPane.showInputDialog("Digite \n 1 - Exer Palindromo "
+								+ "\n 2 - Exer Nome"
+								+ "\n 3 - Exer URL" 
+								+ "\n 9 - Sair"));
 
 			} catch (Exception e) {
 				JOptionPane.showMessageDialog(null, "Valor não é valido");
@@ -35,6 +38,11 @@ public class ViewExer {
 			case 2:
 				JOptionPane.showMessageDialog(null,
 						exer.separaNome(JOptionPane.showInputDialog("Digite o seu nome completo")));
+				break;
+			case 3:
+				JOptionPane.showMessageDialog(null,
+						exer.verificaURL(JOptionPane.showInputDialog("Digite a url")));
+				
 				break;
 
 			case 9:
