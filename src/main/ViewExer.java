@@ -47,6 +47,7 @@ public class ViewExer {
 
 			case 9:
 				JOptionPane.showMessageDialog(null, "Finalizando Aplicação");
+				System.exit(0);
 				break;
 
 			case -1:
