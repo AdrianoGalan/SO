@@ -1,9 +1,18 @@
 package view;
 
+import controller.ThreadCalcController;
+
 public class Principal {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
+		int a = 10;
+		int b = 2;
+		int operacao = 2;
+		
+		Thread tcc = new ThreadCalcController(a, b, operacao);
+		tcc.start();
+		
 
 	}
 
