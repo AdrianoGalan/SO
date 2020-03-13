@@ -18,6 +18,13 @@ public class ThreadCalcController extends Thread {
 	}
 
 	private void calc() {
+		
+		try {
+			sleep(operacao * 2);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		String op = "";
 		int res = 0;
@@ -42,8 +49,8 @@ public class ThreadCalcController extends Thread {
 			break;
 
 		}
-		
-		System.out.println(a + " " + op + " " + b + " = " + res);
+
+		System.out.println(getId() + " ==>> " + a + " " + op + " " + b + " = " + res);
 
 	}
 
